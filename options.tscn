@@ -1,0 +1,118 @@
+[gd_scene load_steps=10 format=3 uid="uid://hs4lx52l14jb"]
+
+[ext_resource type="Texture2D" uid="uid://d35usy0jiw7sf" path="res://Fonts/Insop.png" id="1_6t14j"]
+[ext_resource type="Script" path="res://script/options.gd" id="1_v70cd"]
+[ext_resource type="StyleBox" uid="uid://xbkjsjmh0jts" path="res://Fonts/box2.tres" id="2_fmod1"]
+[ext_resource type="StyleBox" uid="uid://vddjyoxysug7" path="res://Fonts/box_1_format.tres" id="3_ekl7p"]
+[ext_resource type="StyleBox" uid="uid://dh02hptbgruwi" path="res://Fonts/box-3.tres" id="3_kjd6r"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yrhx6"]
+texture = ExtResource("1_6t14j")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ibrc"]
+bg_color = Color(0.344, 0.483, 0.761, 0.789)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l37oh"]
+bg_color = Color(0.494458, 0.569371, 0.935453, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rkt34"]
+border_width_left = 10
+border_color = Color(0.552956, 0.552956, 0.552955, 1)
+border_blend = true
+corner_radius_bottom_right = 10
+
+[node name="Options" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v70cd")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_yrhx6")
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = -143.0
+offset_right = 239.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("3_kjd6r")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -170.0
+offset_top = -67.0
+offset_right = -1.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Music"
+
+[node name="HScrollBar" type="HScrollBar" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = -59.0
+offset_right = 138.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/scroll = SubResource("StyleBoxFlat_4ibrc")
+theme_override_styles/scroll_focus = SubResource("StyleBoxFlat_l37oh")
+theme_override_styles/grabber = SubResource("StyleBoxFlat_rkt34")
+step = 1.0
+rounded = true
+
+[node name="back" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -78.0
+offset_top = 62.0
+offset_right = 81.0
+offset_bottom = 116.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = ExtResource("2_fmod1")
+theme_override_styles/pressed = ExtResource("2_fmod1")
+theme_override_styles/normal = ExtResource("3_ekl7p")
+text = "Back
+"
+
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
